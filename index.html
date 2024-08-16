@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health and Fitness Questionnaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: #333;
+            margin: 0;
+            overflow: auto; /* Enable scrolling if content overflows */
+            padding: 20px; /* Add padding to ensure there's space around the container */
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto; /* Center the container horizontally */
+            box-sizing: border-box; /* Ensure padding and border are included in width */
+            text-align: center;
+            display: none; /* Hide container initially */
+        }
+        h1 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .greeting {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="intro" class="container">
+        <h1>Welcome to Your Health and Fitness Journey!</h1>
+        <p class="greeting"></p>
+        <form id="user-form">
+            <label for="weight">What’s your current weight (kg)?</label>
+            <input type="number" id="weight" name="weight" required>
+
+            <label for="height">What’s your current height (cm)?</label>
+            <input type="number" id="height" name="height" required>
+
+            <label for="diet">Do you follow any specific diet plan or have any dietary restrictions?</label>
+            <input type="text" id="diet" name="diet">
+
+            <label for="meals">How many meals do you usually eat in a day?</label>
+            <input type="number" id="meals" name="meals">
+
+            <label for="favorites">What kind of foods do you enjoy the most?</label>
+            <input type="text" id="favorites" name="favorites">
+
+            <label for="avoid">Do you have any foods you prefer to avoid?</label>
+            <input type="text" id="avoid" name="avoid">
+
+            <label for="fruits-veg">How often do you eat fruits and vegetables?</label>
+            <input type="text" id="fruits-veg" name="fruits-veg">
+
+            <label for="health-issues">Do you have any current health concerns or conditions?</label>
+            <input type="text" id="health-issues" name="health-issues">
+
+            <label for="activity">How active are you on a typical day?</label>
+            <select id="activity" name="activity">
+                <option value="Sedentary">Sedentary</option>
+                <option value="Lightly active">Lightly active</option>
+                <option value="Moderately active">Moderately active</option>
+                <option value="Very active">Very active</option>
+                <option value="Extra active">Extra active</option>
+            </select>
+
+            <label for="goals">What are your fitness goals?</label>
+            <input type="text" id="goals" name="goals">
+
+            <label for="allergies">Do you have any allergies or intolerances?</label>
+            <input type="text" id="allergies" name="allergies">
+
+            <label for="water">How much water do you usually drink each day (in liters)?</label>
+            <input type="number" id="water" name="water" step="0.1">
+
+            <label for="sleep">How many hours of sleep do you get on average each night?</label>
+            <input type="number" id="sleep" name="sleep" step="0.1">
+
+            <label for="specific-goals">Do you have any specific goals for your diet and fitness?</label>
+            <input type="text" id="specific-goals" name="specific-goals">
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="info">
+            <p>Based on your input, it seems you want to go for a good health journey. Would you like to calculate your BMR and BMI?</p>
+            <button onclick="redirectToCalculator()">Go to Calculator</button>
+        </div>
+    </div>
+
+    <script>
+        // Prompt for the user's name and then show the form
+        var userName = prompt("Welcome! Please enter your name:");
+        
+        if (userName) {
+            // Display a greeting and show the form
+            document.querySelector('.greeting').innerText = `Hello, ${userName}! Let's get to know you better. Please fill out the details below regarding your daily diet and health.`;
+            document.querySelector('.container').style.display = 'block'; // Show the form
+        } else {
+            // If no name is provided, alert and redirect (or handle as needed)
+            alert("You didn't enter a name. The form will not be displayed.");
+        }
+
+        // Function to redirect to another website
+        function redirectToCalculator() {
+            window.location.href = "https://anweshapplese.github.io/BMI_BMRcalc/"; // Replace with your URL
+        }
+    </script>
+</body>
+</html>
